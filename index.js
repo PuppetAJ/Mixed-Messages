@@ -22,10 +22,9 @@ let monArr = [
   "Swanna",
 ];
 
-function getRandomMon() {
-  let randomMon = monArr[Math.floor(Math.random() * monArr.length)];
-  return randomMon;
-}
+const getRandomMon = () => {
+  return monArr[Math.floor(Math.random() * monArr.length)];
+};
 
 const monFactory = () => {
   return {
@@ -43,4 +42,36 @@ const monFactory = () => {
   };
 };
 
-console.log(monFactory());
+const displayMessage = () => {
+  const mon = monFactory();
+  console.log(`\n`);
+  console.log(`        ▄███████████▄        
+     ▄███▓▓▓▓▓▓▓▓▓▓▓███▄     
+    ███▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓███    
+   ██▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓██   
+  ██▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓██  
+ ██▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓██ 
+██▓▓▓▓▓▓▓▓▓███████▓▓▓▓▓▓▓▓▓██
+██▓▓▓▓▓▓▓▓██░░░░░██▓▓▓▓▓▓▓▓██
+██▓▓▓▓▓▓▓██░░███░░██▓▓▓▓▓▓▓██
+███████████░░███░░███████████
+██░░░░░░░██░░███░░██░░░░░░░██
+██░░░░░░░░██░░░░░██░░░░░░░░██
+██░░░░░░░░░███████░░░░░░░░░██
+ ██░░░░░░░░░░░░░░░░░░░░░░░██ 
+  ██░░░░░░░░░░░░░░░░░░░░░██  
+   ██░░░░░░░░░░░░░░░░░░░██   
+    ███░░░░░░░░░░░░░░░███    
+     ▀███░░░░░░░░░░░███▀     
+        ▀███████████▀        \n`);
+  console.log("\n");
+  console.log(
+    `You encountered a wild ${mon.mon} at level ${mon.level}! It has ${
+      mon.shiny ? "shiny" : "non-shiny"
+    } coloration and its IVs are:
+    \n`
+  );
+  console.table(mon.IVs);
+};
+
+displayMessage();
