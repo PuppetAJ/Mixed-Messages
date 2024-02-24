@@ -1,3 +1,4 @@
+// Stores pokemon names
 let monArr = [
   "Zekrom",
   "Reshiram",
@@ -22,10 +23,12 @@ let monArr = [
   "Swanna",
 ];
 
+// Gets a random pokemon from the monArr
 const getRandomMon = () => {
   return monArr[Math.floor(Math.random() * monArr.length)];
 };
 
+// Generates a random pokemon with random level, shiny status, and IVs
 const monFactory = () => {
   return {
     mon: getRandomMon(),
@@ -42,6 +45,7 @@ const monFactory = () => {
   };
 };
 
+// Displays the message
 const displayMessage = () => {
   const mon = monFactory();
   console.log(`\n`);
