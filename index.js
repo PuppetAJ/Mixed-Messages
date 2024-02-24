@@ -27,4 +27,20 @@ function getRandomMon() {
   return randomMon;
 }
 
-console.log(getRandomMon());
+const monFactory = () => {
+  return {
+    mon: getRandomMon(),
+    level: Math.floor(Math.random() * 100),
+    shiny: Math.random() < 0.1,
+    IVs: {
+      hp: Math.floor(Math.random() * 32),
+      atk: Math.floor(Math.random() * 32),
+      def: Math.floor(Math.random() * 32),
+      spa: Math.floor(Math.random() * 32),
+      spd: Math.floor(Math.random() * 32),
+      spe: Math.floor(Math.random() * 32),
+    },
+  };
+};
+
+console.log(monFactory());
